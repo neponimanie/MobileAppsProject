@@ -5,20 +5,22 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SignInActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="256dp"
-        android:layout_marginLeft="30dp">
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:hint="Full name">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -27,8 +29,9 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:hint="Valid email"
-            android:layout_marginTop="19dp">
+            android:layout_marginTop="19dp"
+            android:hint="Valid email">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -37,8 +40,9 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:hint="Phone number"
-            android:layout_marginTop="19dp">
+            android:layout_marginTop="19dp"
+            android:hint="Phone number">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -47,8 +51,9 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:hint="Strong Password"
-            android:layout_marginTop="19dp">
+            android:layout_marginTop="19dp"
+            android:hint="Strong Password">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -58,8 +63,7 @@
             android:layout_width="300dp"
             android:layout_height="20dp"
             android:text="By checking the box you agree to our Terms and Conditions."
-            android:textSize="9sp">
-        </CheckBox>
+            android:textSize="9sp"></CheckBox>
     </LinearLayout>
 
     <Button
@@ -78,7 +82,7 @@
     </Button>
 
     <TextView
-        android:id="@+id/aboba"
+        android:id="@+id/sign_in"
         android:layout_width="350dp"
         android:layout_height="16dp"
         android:text="Already a member? Log In"
