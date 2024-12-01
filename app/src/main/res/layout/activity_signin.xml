@@ -16,22 +16,26 @@
         android:layout_marginTop="325dp"
         android:layout_marginLeft="30dp">
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailLayout"
             android:layout_width="350dp"
-            android:layout_height="50dp"
+            android:layout_height="65dp"
             android:hint="Enter your email">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/emailTextField"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwdLayout"
             android:layout_width="350dp"
-            android:layout_height="50dp"
+            android:layout_height="65dp"
             android:hint="Password"
             android:layout_marginTop="25dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/passwdTextField"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
