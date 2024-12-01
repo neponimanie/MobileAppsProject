@@ -27,6 +27,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_Input"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginTop="19dp"
@@ -49,6 +50,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_Input"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginTop="19dp"
@@ -67,7 +69,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/whatever"
+        android:id="@+id/Register"
         android:layout_width="350dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -86,8 +88,8 @@
         android:layout_width="350dp"
         android:layout_height="16dp"
         android:text="Already a member? Log In"
-        app:layout_constraintTop_toTopOf="@id/whatever"
-        app:layout_constraintStart_toStartOf="@id/whatever"
+        app:layout_constraintTop_toTopOf="@id/Register"
+        app:layout_constraintStart_toStartOf="@id/Register"
         android:layout_marginTop="73dp"
         android:gravity="center"
         android:textSize="13sp">
