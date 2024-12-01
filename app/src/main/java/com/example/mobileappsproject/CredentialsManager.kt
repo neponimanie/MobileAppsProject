@@ -20,6 +20,31 @@ class CredentialsManager {
     }
 
     fun signIn(email: String, passwd: String): Boolean {
-        return email == "test@te.st" && passwd == "1234"
+        return userCredentials[email] == passwd
     }
+
+    val userCredentials = mutableMapOf(
+        "test@te.st" to "1234"
+    )
+
+    fun register(email: String, password: String): Boolean
+    {
+        if (emailValid(email) && passwordValid((password)))
+        {
+            if (userCredentials.containsKey(email.lowercase()))
+            {
+                return false
+            }
+            else
+            {
+                userCredentials[email.lowercase()] = password
+                return true
+            }
+        }
+        else
+        {
+            return false
+        }
+    }
+
 }
