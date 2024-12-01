@@ -15,18 +15,25 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="325dp"
         android:layout_marginLeft="30dp">
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:hint="Enter your email">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </EditText>
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:hint="Password"
             android:layout_marginTop="25dp">
-        </EditText>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <CheckBox
             android:layout_width="100dp"
             android:layout_height="20dp"
@@ -44,8 +51,10 @@
         android:layout_marginBottom="97dp"
         android:layout_marginLeft="30dp"
         android:text="Next >"
-        android:textSize="20sp">
-
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#6C63FF"
+        style="@style/Widget.MaterialComponents.Button.TextButton">
     </Button>
 
     <TextView
@@ -106,7 +115,6 @@
         android:text="Forget password?"
         android:textSize="9sp"
         android:textColor="#6C63FF">
-
     </TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
