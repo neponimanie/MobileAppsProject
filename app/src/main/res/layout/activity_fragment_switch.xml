@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentSwitch">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.mobileappsproject.FragmentA"
+        />
+
+    <Button
+        android:id="@+id/fragSwitch"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="97dp"
+        android:layout_marginLeft="30dp"
+        android:text="Switch"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#6C63FF"
+        style="@style/Widget.MaterialComponents.Button.TextButton">
+    </Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
