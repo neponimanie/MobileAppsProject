@@ -8,25 +8,10 @@
     tools:context=".FragmentSwitch">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentActivity"
+        android:id="@+id/fragmentSwitchActivity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.example.mobileappsproject.FragmentA"
         />
-
-    <Button
-        android:id="@+id/fragSwitch"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="97dp"
-        android:layout_marginLeft="30dp"
-        android:text="Switch"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#6C63FF"
-        style="@style/Widget.MaterialComponents.Button.TextButton">
-    </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
