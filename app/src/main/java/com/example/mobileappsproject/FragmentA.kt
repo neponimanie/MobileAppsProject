@@ -1,5 +1,6 @@
 package com.example.mobileappsproject
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -13,12 +14,13 @@ class FragmentA : Fragment(R.layout.activity_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val registerNow = view.findViewById<TextView>(R.id.newmember)
+        val registerNow = view.findViewById<TextView>(R.id.sign_in)
         val loginEmail = view.findViewById<TextInputLayout>(R.id.emailLayout)
         val loginPassword = view.findViewById<TextInputLayout>(R.id.passwdLayout)
         val loginNextButton = view.findViewById<Button>(R.id.Next)
 
         loginNextButton.setOnClickListener {
+
             val emailText = loginEmail.editText?.text.toString().trim()
             val passwordText = loginPassword.editText?.text.toString().trim()
 
@@ -36,7 +38,8 @@ class FragmentA : Fragment(R.layout.activity_fragment) {
             }
 
             if (credentialsManager.signIn(emailText, passwordText)) {
-                // Handle successful login
+                val goToMain = Intent(requireActivity(), MainActivity::class.java)
+                startActivity(goToMain)
             } else {
                 loginEmail.error = "Incorrect email or password"
                 loginPassword.error = "Incorrect email or password"
