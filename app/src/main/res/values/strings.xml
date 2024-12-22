@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">MobileAppsProject</string>
+
+    <string-array name="food">
+
+        <item>Food1</item>
+        <item>Food2</item>
+        <item>Food3</item>
+        <item>Food4</item>
+
+    </string-array>
+
+    <string-array name="decription">
+
+    <item>Description1</item>
+    <item>Description2</item>
+    <item>Description3</item>
+    <item>Description4</item>
+
+    </string-array>
 </resources>

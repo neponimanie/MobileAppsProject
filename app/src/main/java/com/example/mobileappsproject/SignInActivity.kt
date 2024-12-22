@@ -1,4 +1,4 @@
-package com.example.mobileappsproject
+/*package com.example.mobileappsproject
 
 import android.content.Intent
 import android.os.Bundle
@@ -17,7 +17,7 @@ class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_signin)
+        setContentView(R.layout.activity_fragment_b)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -60,8 +60,8 @@ class SignInActivity : AppCompatActivity() {
             }
 
             if(credentialsmanager.signIn(email, passwd)) {
-                val goToMain = Intent(this, MainActivity::class.java)
-                startActivity(goToMain)
+               // val goToMain = Intent(this, MainActivity::class.java)
+                //startActivity(goToMain)
             }
             else {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
@@ -71,3 +71,5 @@ class SignInActivity : AppCompatActivity() {
         signInButton.setOnClickListener {signIn()}
     }
 }
+
+ */

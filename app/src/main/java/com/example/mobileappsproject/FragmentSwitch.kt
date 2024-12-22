@@ -22,7 +22,7 @@ class FragmentSwitch : AppCompatActivity() {
         }
 
         supportFragmentManager.commit {
-            replace<FragmentA>(R.id.fragmentSwitchActivity)
+            replace<FragmentB>(R.id.fragmentSwitchActivity)
         }
     }
 

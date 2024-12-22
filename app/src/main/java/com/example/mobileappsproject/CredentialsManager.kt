@@ -16,7 +16,7 @@ class CredentialsManager {
     }
 
     fun passwordValid(passwd: String): Boolean {
-        return passwd.length >= 6 && passwd.length <= 20 && passwd.any { it in "!+-_=@#$%" && passwd.count(Char::isDigit) > 0 } || passwd == "1234"
+        return passwd.length >= 4 && passwd.length <= 20 && passwd.any { it in "!+-_=@#$%" && passwd.count(Char::isDigit) > 0 } || passwd == "1234"
     }
 
     fun signIn(email: String, passwd: String): Boolean {
