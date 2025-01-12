@@ -10,9 +10,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerAdapter(
-    private var titles: List<String>,
-    private var details: List<String>,
-    private var images: List<Int>
+    private var recipes: List<Recipe>
 ) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -23,32 +21,20 @@ class RecyclerAdapter(
         private val buttonAction2: Button = itemView.findViewById(R.id.btn_action2)
 
         init {
-            // Set up a click listener for the entire item
-            itemView.setOnClickListener {
-                val position: Int = adapterPosition
-                Toast.makeText(
-                    itemView.context,
-                    "You clicked on item: ${titles[position]}",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-            // Set up a click listener for btn_action1 (Like Button)
             buttonAction1.setOnClickListener {
-                val position: Int = adapterPosition
+                val position = adapterPosition
                 Toast.makeText(
                     itemView.context,
-                    "You pressed the Share button on item: ${titles[position]}",
+                    "You pressed the Share button on item: ${recipes[position].title}",
                     Toast.LENGTH_SHORT
                 ).show()
             }
 
-            // Set up a click listener for btn_action2 (Share Button)
             buttonAction2.setOnClickListener {
-                val position: Int = adapterPosition
+                val position = adapterPosition
                 Toast.makeText(
                     itemView.context,
-                    "You pressed the Like button on item: ${titles[position]}",
+                    "You pressed the Like button on item: ${recipes[position].title}",
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -61,13 +47,17 @@ class RecyclerAdapter(
         return ViewHolder(v)
     }
 
-    override fun getItemCount(): Int {
-        return titles.size
-    }
+    override fun getItemCount(): Int = recipes.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemTitle.text = titles[position]
-        holder.itemDetail.text = details[position]
-        holder.itemPicture.setImageResource(images[position])
+        val recipe = recipes[position]
+        holder.itemTitle.text = recipe.title
+        holder.itemDetail.text = recipe.description
+        holder.itemPicture.setImageResource(recipe.imageRes)
+    }
+
+    fun updateData(newRecipes: List<Recipe>) {
+        recipes = newRecipes
+        notifyDataSetChanged()
     }
 }

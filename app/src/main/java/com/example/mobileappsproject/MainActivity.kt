@@ -1,58 +1,62 @@
 package com.example.mobileappsproject
 
 import android.os.Bundle
+import android.widget.SearchView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    private var titlesList = mutableListOf<String>()
-    private var descList = mutableListOf<String>()
-    private var imagesList = mutableListOf<Int>()
+    private val viewModel: RecipesViewModel by viewModels()
+    private lateinit var adapter: RecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Load data from strings.xml
-        postToList()
-
-        // Set up the RecyclerView
+        // Set up RecyclerView
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        adapter = RecyclerAdapter(emptyList())
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = RecyclerAdapter(titlesList, descList, imagesList)
-    }
+        recyclerView.adapter = adapter
 
-    private fun postToList() {
-        // Retrieve string arrays from strings.xml
-        val foodTitles = resources.getStringArray(R.array.food)
-        val foodDescriptions = resources.getStringArray(R.array.decription)
+        // Load data and post to ViewModel
+        val recipes = getRecipes()
+        viewModel.setRecipes(recipes)
 
-        // Add data to the lists
-        for (i in foodTitles.indices) {
-            addToList(
-                title = foodTitles[i],
-                description = foodDescriptions[i],
-                image = getImageResource(i)
-            )
+        // Observe StateFlow and update RecyclerView
+        lifecycleScope.launch {
+            viewModel.recipesFlow.collect { updatedRecipes ->
+                adapter.updateData(updatedRecipes)
+            }
         }
+
+        // Set up SearchView
+        val searchView = findViewById<SearchView>(R.id.searchView)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { viewModel.searchRecipes(it) }
+                return true
+            }
+        })
     }
 
-    private fun addToList(title: String, description: String, image: Int) {
-        titlesList.add(title)
-        descList.add(description)
-        imagesList.add(image)
-    }
+    private fun getRecipes(): List<Recipe> {
+        val titles = resources.getStringArray(R.array.food)
+        val descriptions = resources.getStringArray(R.array.decription)
+        val images = listOf(R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4)
 
-    private fun getImageResource(index: Int): Int {
-        // Map images to their corresponding index
-        return when (index) {
-            0 -> R.drawable.food1
-            1 -> R.drawable.food2
-            2 -> R.drawable.food3
-            3 -> R.drawable.food4
-            else -> R.mipmap.ic_launcher_round // Default image
+        return titles.indices.map { index ->
+            Recipe(titles[index], descriptions[index], images[index % images.size])
         }
     }
 }
